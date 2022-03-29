@@ -1,5 +1,4 @@
 import {
-  IonChip,
   IonItem,
   IonLabel,
   IonNote
