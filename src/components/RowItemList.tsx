@@ -1,4 +1,5 @@
 import {
+  IonChip,
   IonItem,
   IonLabel,
   IonNote
@@ -28,7 +29,8 @@ const RowItemList: React.FC<RowItemListProps> = ({ rowItem, searchText }) => {
             <IonNote><Moment format="DD MMM, YYYY">{rowItem.enddate}</Moment></IonNote>
           </span>
         </h2>
-        <h3><i>{rowItem.remainingdays}</i> remaining</h3>
+        {daysLeft<=0 && <h3><IonNote color="danger"><i>Expired</i></IonNote></h3>}        
+        {daysLeft>0 && <h3><IonNote color={daysLeft <= 30 ? 'warning' : 'black'}><i>{rowItem.remainingdays}</i> remaining</IonNote></h3> }
       </IonLabel>
     </IonItem>
   );

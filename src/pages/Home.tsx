@@ -22,7 +22,6 @@ const Home: React.FC = () => {
   const [searchText, setSearchText] = useState('');
 
   useIonViewWillEnter(async () => {
-    console.log("****** REACT_APP_AIRTABLE_KEY", process.env.REACT_APP_AIRTABLE_KEY)
     const items = await getRowItems();
     setRowItems(items);
   }, []);
