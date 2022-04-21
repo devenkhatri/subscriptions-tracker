@@ -32,10 +32,6 @@ const Home: React.FC = () => {
     }, 3000);
   };
   
-  const getDaysLeft = (rowItem) => {
-    return (rowItem && rowItem?.remainingdays_n) || 0;
-  }
-
   return (
     <IonPage id="home-page">
       <IonHeader>
