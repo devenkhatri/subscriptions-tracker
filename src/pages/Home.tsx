@@ -31,6 +31,10 @@ const Home: React.FC = () => {
       e.detail.complete();
     }, 3000);
   };
+  
+  const getDaysLeft = (rowItem) => {
+    return (rowItem && rowItem?.remainingdays_n) || 0;
+  }
 
   return (
     <IonPage id="home-page">
@@ -53,7 +57,7 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} showCancelButton="never" animated placeholder="Filter Items"></IonSearchbar>
         <IonList>
-          {rowItems && rowItems.length>0 && rowItems.map(r => <RowItemList key={r.id} rowItem={r} searchText={searchText} />)}
+          {rowItems && rowItems.length>0 && rowItems.map(r => (getDaysLeft(r)>(-20)) && <RowItemList key={r.id} rowItem={r} searchText={searchText} />)}
           {rowItems && rowItems.length<=0 && 
             <>
               <SkeletonItem />
