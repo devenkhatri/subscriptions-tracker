@@ -57,7 +57,7 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} showCancelButton="never" animated placeholder="Filter Items"></IonSearchbar>
         <IonList>
-          {rowItems && rowItems.length>0 && rowItems.map(r => (getDaysLeft(r)>(-20)) && <RowItemList key={r.id} rowItem={r} searchText={searchText} />)}
+          {rowItems && rowItems.length>0 && rowItems.map(r => ((rowItem && rowItem?.remainingdays_n)>(-20)) && <RowItemList key={r.id} rowItem={r} searchText={searchText} />)}
           {rowItems && rowItems.length<=0 && 
             <>
               <SkeletonItem />
